@@ -1,30 +1,82 @@
-//Standart Template Library
 #include <iostream>
 #include <vector>
-#include "DynamicArray.h"
 #include "DynamicArray.h"
 
 using namespace std;
 
+//void Test(int A)
+//{
+//
+//}
 
+//Default Argumnent
+//void Test(int A = 2, int B = 1, int C = 0)
+//{
+//	cout << A << endl;
+//	cout << B << endl;
+//	cout << C << endl;
+//}
 
 int main()
 {
-	std::vector<int> IntArray;
+	//Test(1, 2, 3);
 
-	DynamicArray OurArray;
+	//return 0;
 
-	int Size;
+	DynamicArray D(4);
 
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 8; ++i)
 	{
-		
-		IntArray.push_back(i);
+		cout << D.GetSize() << endl;
+		cout << D.GetCapacity() << endl;
+		cout << "----------------------------" << endl;
+
+		D.PushBack(i + 1);
 	}
 
-	
-	cout << IntArray.size() << endl;
-	cout << IntArray.capacity() << endl;
+	//[1][2][3][4][5][6][7][8]
+	D.RemoveAt(3);
+
+	cout << D.GetSize() << endl;
+	cout << D.GetCapacity() << endl;
+	cout << "----------------------------" << endl;
+	for (int i = 0; i < D.GetSize(); ++i)
+	{
+		cout << D[i] << ", ";
+	}
+	//[1][2][3][5][6][7][8]
+
+	cout << endl;
+
+	D.RemoveAt(5);
+
+	cout << D.GetSize() << endl;
+	cout << D.GetCapacity() << endl;
+	cout << "----------------------------" << endl;
+
+
+	for (int i = 0; i < D.GetSize(); ++i)
+	{
+		cout << D[i] << ", ";
+	}
+	//[1][2][3][5][6][8]
+	cout << endl;
+
+	D.PushBack(9);
+
+	for (int i = 0; i < D.GetSize(); ++i)
+	{
+		cout << D[i] << ", ";
+	}
+	//[1][2][3][5][6][8][9]
+	cout << endl;
+
+	cout << D.GetSize() << endl;
+	cout << D.GetCapacity() << endl;
+	cout << "----------------------------" << endl;
+
+
+
 
 
 	return 0;
