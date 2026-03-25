@@ -41,13 +41,26 @@ public:
 
 	}
 
-	inline int GetSize()
+	//함수 뒤에 const readonly 함수임 . readonly는 C++에 있는 키워드는 아니다. 
+	//멤버함수 뒤에 붙은거는 readonly라 해준다. -> 다른걸로 바꾸지 않겠다
+	inline size_t GetSize() const
 	{
+		
 		return Size;
 	}
-	//protected:
+
+	//opertator overload
+	int&  operator[](int Index) const //연산자를 재정의 한다는 의미//const는 안바꾼다는 의미
+	//크기가 큰거를 리턴해주기엔 힘들다. 그러면 포잍러
+	{
+		return Data[Index];
+	}
+
+protected:
 	int* Data;
-	int Size = 0;
+	size_t Size = 0;//64비트 
 };
+
+
 
 #endif //__DynamicArray_H__
